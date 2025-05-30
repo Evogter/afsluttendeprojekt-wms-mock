@@ -1,1 +1,0 @@
-Projekt for afsluttende eksamensopgave
