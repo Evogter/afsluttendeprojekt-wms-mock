@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Create New User{% endblock %}
+
+{% block content %}
+<h1>👤 Create New User</h1>
+
+{% if message %}
+    <p class="message">{{ message }}</p>
+{% endif %}
+
+<form method="post" class="user-form">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <label for="role">Role:</label>
+    <select id="role" name="role">
+        <option value="admin">Admin</option>
+        <option value="user">User</option>
+    </select>
+
+    <button type="submit">Create User</button>
+</form>
+{% endblock %}

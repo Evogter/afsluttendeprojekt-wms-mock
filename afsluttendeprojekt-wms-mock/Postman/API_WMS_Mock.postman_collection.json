@@ -1,0 +1,391 @@
+{
+	"info": {
+		"_postman_id": "389caff6-38b0-434c-bc7d-4c0097c488f9",
+		"name": "API WMS Mock",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45140658"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"ApiMock2025\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://7c7d0cff-5448-4fb5-ab3c-d61af987163f.mock.pstmn.io/api/v1/Auth/Login",
+					"protocol": "https",
+					"host": [
+						"7c7d0cff-5448-4fb5-ab3c-d61af987163f",
+						"mock",
+						"pstmn",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Auth",
+						"Login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Successful login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"ApiMock2025\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://mock.wms.local/api/v1/Auth/Login",
+							"protocol": "https",
+							"host": [
+								"mock",
+								"wms",
+								"local"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Auth",
+								"Login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n  \"token\": \"fake-token-abc123\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Devices",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": 1,\r\n        \"name\": \"Wyse-001\",\r\n        \"status\": \"online\",\r\n        \"firmware\": \"v1.0.12\",\r\n        \"lastCheckIn\": \"2025-05-20T12:00:00Z\"\r\n    },\r\n    {\r\n        \"id\": 2,\r\n        \"name\": \"Wyse-002\",\r\n        \"status\": \"offline\",\r\n        \"firmware\": \"v1.0.9\",\r\n        \"lastCheckIn\": \"2025-05-18T14:25:00Z\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://7c7d0cff-5448-4fb5-ab3c-d61af987163f.mock.pstmn.io/api/v1/Devices",
+					"protocol": "https",
+					"host": [
+						"7c7d0cff-5448-4fb5-ab3c-d61af987163f",
+						"mock",
+						"pstmn",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Devices"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Devices",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": 1,\r\n        \"name\": \"Wyse-001\",\r\n        \"status\": \"online\",\r\n        \"firmware\": \"v1.0.12\",\r\n        \"lastCheckIn\": \"2025-05-20T12:00:00Z\"\r\n    },\r\n    {\r\n        \"id\": 2,\r\n        \"name\": \"Wyse-002\",\r\n        \"status\": \"offline\",\r\n        \"firmware\": \"v1.0.9\",\r\n        \"lastCheckIn\": \"2025-05-18T14:25:00Z\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://7c7d0cff-5448-4fb5-ab3c-d61af987163f.mock.pstmn.io/api/v1/Devices",
+							"protocol": "https",
+							"host": [
+								"7c7d0cff-5448-4fb5-ab3c-d61af987163f",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Devices"
+							]
+						}
+					},
+					"_postman_previewlanguage": "",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "[\r\n  {\r\n    \"id\": 1,\r\n    \"name\": \"Wyse-001\",\r\n    \"status\": \"online\",\r\n    \"firmware\": \"v1.0.12\",\r\n    \"lastCheckIn\": \"2025-05-20T12:00:00Z\"\r\n  },\r\n  {\r\n    \"id\": 2,\r\n    \"name\": \"Wyse-002\",\r\n    \"status\": \"offline\",\r\n    \"firmware\": \"v1.0.9\",\r\n    \"lastCheckIn\": \"2025-05-18T14:25:00Z\"\r\n  }\r\n]"
+				}
+			]
+		},
+		{
+			"name": "Get Updates",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"updates\": [\r\n    {\r\n      \"deviceId\": 1,\r\n      \"deviceName\": \"Wyse-001\",\r\n      \"updateAvailable\": false,\r\n      \"lastUpdate\": \"2025-05-15T10:30:00Z\"\r\n    },\r\n    {\r\n      \"deviceId\": 2,\r\n      \"deviceName\": \"Wyse-002\",\r\n      \"updateAvailable\": true,\r\n      \"lastUpdate\": \"2025-04-28T09:10:00Z\"\r\n    }\r\n  ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://7c7d0cff-5448-4fb5-ab3c-d61af987163f.mock.pstmn.io/api/v1/Updates",
+					"protocol": "https",
+					"host": [
+						"7c7d0cff-5448-4fb5-ab3c-d61af987163f",
+						"mock",
+						"pstmn",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Updates"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Updates",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"updates\": [\r\n    {\r\n      \"deviceId\": 1,\r\n      \"deviceName\": \"Wyse-001\",\r\n      \"updateAvailable\": false,\r\n      \"lastUpdate\": \"2025-05-15T10:30:00Z\"\r\n    },\r\n    {\r\n      \"deviceId\": 2,\r\n      \"deviceName\": \"Wyse-002\",\r\n      \"updateAvailable\": true,\r\n      \"lastUpdate\": \"2025-04-28T09:10:00Z\"\r\n    }\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://7c7d0cff-5448-4fb5-ab3c-d61af987163f.mock.pstmn.io/api/v1/Updates",
+							"protocol": "https",
+							"host": [
+								"7c7d0cff-5448-4fb5-ab3c-d61af987163f",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Updates"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\r\n  \"updates\": [\r\n    {\r\n      \"deviceId\": 1,\r\n      \"deviceName\": \"Wyse-001\",\r\n      \"updateAvailable\": false,\r\n      \"lastUpdate\": \"2025-05-15T10:30:00Z\"\r\n    },\r\n    {\r\n      \"deviceId\": 2,\r\n      \"deviceName\": \"Wyse-002\",\r\n      \"updateAvailable\": true,\r\n      \"lastUpdate\": \"2025-04-28T09:10:00Z\"\r\n    }\r\n  ]\r\n}\r\n"
+				}
+			]
+		},
+		{
+			"name": "Get Device 1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://7c7d0cff-5448-4fb5-ab3c-d61af987163f.mock.pstmn.io/api/v1/Devices/1\n",
+					"protocol": "https",
+					"host": [
+						"7c7d0cff-5448-4fb5-ab3c-d61af987163f",
+						"mock",
+						"pstmn",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Devices",
+						"1\n"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Device 1",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 1,\r\n  \"name\": \"Wyse-001\",\r\n  \"status\": \"online\",\r\n  \"firmware\": \"v1.0.12\",\r\n  \"location\": \"Kontor 3. sal\",\r\n  \"ip\": \"192.168.1.101\",\r\n  \"lastCheckIn\": \"2025-05-20T12:00:00Z\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://7c7d0cff-5448-4fb5-ab3c-d61af987163f.mock.pstmn.io/api/v1/Devices/1\n",
+							"protocol": "https",
+							"host": [
+								"7c7d0cff-5448-4fb5-ab3c-d61af987163f",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Devices",
+								"1\n"
+							]
+						}
+					},
+					"_postman_previewlanguage": "",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\r\n  \"id\": 1,\r\n  \"name\": \"Wyse-001\",\r\n  \"status\": \"online\",\r\n  \"firmware\": \"v1.0.12\",\r\n  \"location\": \"Kontor 3. sal\",\r\n  \"ip\": \"192.168.1.101\",\r\n  \"lastCheckIn\": \"2025-05-20T12:00:00Z\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Device 2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 2,\r\n  \"name\": \"Wyse-002\",\r\n  \"status\": \"offline\",\r\n  \"firmware\": \"v1.0.9\",\r\n  \"location\": \"Møde 1. sal\",\r\n  \"ip\": \"192.168.1.102\",\r\n  \"lastCheckIn\": \"2025-05-18T14:25:00Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://7c7d0cff-5448-4fb5-ab3c-d61af987163f.mock.pstmn.io/api/v1/Devices/2",
+					"protocol": "https",
+					"host": [
+						"7c7d0cff-5448-4fb5-ab3c-d61af987163f",
+						"mock",
+						"pstmn",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Devices",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Device 2",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 2,\r\n  \"name\": \"Wyse-002\",\r\n  \"status\": \"offline\",\r\n  \"firmware\": \"v1.0.9\",\r\n  \"location\": \"Møde 1. sal\",\r\n  \"ip\": \"192.168.1.102\",\r\n  \"lastCheckIn\": \"2025-05-18T14:25:00Z\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://7c7d0cff-5448-4fb5-ab3c-d61af987163f.mock.pstmn.io/api/v1/Devices/2",
+							"protocol": "https",
+							"host": [
+								"7c7d0cff-5448-4fb5-ab3c-d61af987163f",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Devices",
+								"2"
+							]
+						}
+					},
+					"_postman_previewlanguage": "",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\r\n  \"id\": 2,\r\n  \"name\": \"Wyse-002\",\r\n  \"status\": \"offline\",\r\n  \"firmware\": \"v1.0.9\",\r\n  \"location\": \"Møde 1. sal\",\r\n  \"ip\": \"192.168.1.102\",\r\n  \"lastCheckIn\": \"2025-05-18T14:25:00Z\"\r\n}\r\n"
+				}
+			]
+		}
+	]
+}

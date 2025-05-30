@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Stats{% endblock %}
+
+{% block content %}
+<div class="stats-container">
+    <h1>📈 System Statistics</h1>
+    <ul>
+        <li><strong>✅ Online Devices:</strong> {{ num_online }}</li>
+        <li><strong>🔴 Offline Devices:</strong> {{ num_offline }}</li>
+        <li><strong>🔄 Devices with Updates:</strong> {{ updates_available }}</li>
+    </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Logbog{% endblock %}
+
+{% block content %}
+<h1>📜 Logbook</h1>
+
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>Time</th>
+            <th>User</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for log in logs %}
+        <tr>
+            <td>{{ log.timestamp.strftime('%d-%m-%Y %H:%M:%S') }}</td>
+            <td>{{ log.user }}</td>
+            <td>{{ log.action }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% if not logs %}
+<p>No logposter Yet.</p>
+{% endif %}
+{% endblock %}

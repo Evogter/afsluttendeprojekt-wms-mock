@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block head %}
+    {% if refresh != 'never' %}
+    <meta http-equiv="refresh" content="{{ refresh }}">
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<h1>WMS API Dashboard</h1>
+
+<form method="get">
+    <label for="refresh">Auto-refresh:</label>
+    <select id="refreshSelect" name="refresh" onchange="saveRefresh(this.value)">
+        <option value="30">Every 30 sec</option>
+        <option value="300">Every 5 min</option>
+        <option value="600">Every 10 min</option>
+        <option value="1800">Every 30 min</option>
+        <option value="3600">Every 1 hour</option>
+        <option value="7200">Every 2 hours</option>
+        <option value="never">Never</option>
+    </select>
+</form>
+
+<h2>All Devices</h2>
+<table>
+    <tr><th>ID</th><th>Name</th><th>Status</th><th>Firmware</th><th>Last Check-in</th></tr>
+    {% for device in devices %}
+    <tr>
+        <td>{{ device.id }}</td>
+        <td>{{ device.name }}</td>
+        <td class="status-{{ device.status }}">{{ device.status }}</td>
+        <td>{{ device.firmware }}</td>
+        <td>{{ device.lastCheckIn }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h2>Device Info</h2>
+<form id="deviceForm" method="get">
+    <input type="hidden" name="refresh" value="{{ refresh }}">
+    <select name="device" id="deviceSelect">
+        {% for device in devices %}
+        <option value="{{ device.id }}" {% if device.id == selected_id %}selected{% endif %}>{{ device.name }}</option>
+        {% endfor %}
+    </select>
+</form>
+
+<div id="deviceInfo"></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const select = document.getElementById("deviceSelect");
+    const infoDiv = document.getElementById("deviceInfo");
+
+    function loadDeviceInfo(id) {
+        fetch(`/api/device/${id}`)
+            .then(res => res.json())
+            .then(data => {
+                let html = "<table>";
+                for (let key in data) {
+                    html += `<tr><th>${key}</th><td>${data[key]}</td></tr>`;
+                }
+                html += "</table>";
+                infoDiv.innerHTML = html;
+            });
+    }
+
+    loadDeviceInfo(select.value);
+
+    select.addEventListener("change", function () {
+        loadDeviceInfo(this.value);
+    });
+});
+</script>
+
+<h2>Update Status</h2>
+<input type="text" id="searchInput" placeholder="Search device...">
+<div id="updatesTable"></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.getElementById("searchInput");
+    const updatesTable = document.getElementById("updatesTable");
+
+    function loadUpdates(query = "") {
+        fetch(`/api/updates?search=${encodeURIComponent(query)}`)
+            .then(res => res.json())
+            .then(data => {
+                let html = `
+                    <table>
+                        <tr><th>Device ID</th><th>Device Name</th><th>Update Status</th><th>Last Update</th></tr>
+                `;
+                data.forEach(update => {
+                    const rowClass = update.updateAvailable ? "update-true" : "update-false";
+                    const updateText = update.updateAvailable ? "🔄 Update Available" : "✅ Up to Date";
+
+                    html += `
+                        <tr class="${rowClass}">
+                            <td>${update.deviceId}</td>
+                            <td>${update.deviceName}</td>
+                            <td>${updateText}</td>
+                            <td>${update.lastUpdate}</td>
+                        </tr>
+                    `;
+                });
+                html += "</table>";
+                updatesTable.innerHTML = html;
+            });
+    }
+
+    loadUpdates();
+
+    searchInput.addEventListener("input", function () {
+        loadUpdates(this.value);
+    });
+});
+</script>
+{% endblock %}
+

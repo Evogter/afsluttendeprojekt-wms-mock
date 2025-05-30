@@ -1,0 +1,341 @@
+/* === Base Styles === */
+body {
+    font-family: sans-serif;
+    padding: 30px;
+    background: #f4f4f4;
+    color: #000;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+
+/* === Navbar === */
+.navbar {
+    background-color: #4a90e2;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.navbar a,
+.navbar button,
+.navbar .logout-btn {
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.nav-link {
+    color: white;
+    padding: 6px 10px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.navbar button,
+.navbar .logout-btn {
+    background-color: #ffffff;
+    color: #4a90e2;
+    padding: 6px 12px;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.navbar button:hover,
+.navbar .logout-btn:hover {
+    background-color: #357ABD;
+    color: white;
+}
+
+
+/* === Forms & Login === */
+.login-box {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    text-align: center;
+    margin: 60px auto;
+    max-width: 400px;
+}
+
+.login-box h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.login-box input[type="text"],
+.login-box input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.login-box input[type="submit"] {
+    background-color: #4a90e2;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.login-box input[type="submit"]:hover {
+    background-color: #357ABD;
+}
+
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #f5c6cb;
+    border-radius: 6px;
+}
+
+.message-box {
+    background-color: #f0f8ff;
+    border-left: 4px solid #007BFF;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+
+/* === Tables & Status === */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    background: white;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #4a90e2;
+    color: white;
+}
+
+.status-online { color: green; }
+.status-offline { color: red; }
+
+.update-true {
+    background-color: #f8d7da;
+    color: #721c24;
+    font-weight: bold;
+}
+
+.update-false {
+    background-color: #d4edda;
+    color: #155724;
+    font-weight: bold;
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 0.95em;
+    font-family: sans-serif;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-child(even) {
+    background-color: #f3f3f3;
+}
+
+
+/* === Containers & Sections === */
+.stats-container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: auto;
+}
+
+.stats-container h1 {
+    margin-bottom: 20px;
+}
+
+.stats-container ul {
+    list-style: none;
+    padding: 0;
+    font-size: 18px;
+}
+
+.stats-container li {
+    margin-bottom: 10px;
+    padding: 10px;
+    background: #f5f5f5;
+    border-radius: 6px;
+}
+
+.toggle-container {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+.toggle-container button,
+.toggle-container a.logout-btn {
+    background: #4a90e2;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+
+/* === Dark Mode === */
+.dark-mode {
+    background: #121212;
+    color: #e0e0e0;
+}
+
+.dark-mode table {
+    background: #1e1e1e;
+}
+
+.dark-mode th {
+    background-color: #444;
+    color: #f0f0f0;
+}
+
+.dark-mode td {
+    color: #f0f0f0;
+}
+
+.dark-mode h1,
+.dark-mode h2 {
+    color: #ffffff;
+}
+
+.dark-mode .status-online {
+    color: #6ecf68;
+}
+
+.dark-mode .status-offline {
+    color: #f44336;
+}
+
+.dark-mode .update-true {
+    background-color: #5c2a2a;
+    color: #ffdada;
+}
+
+.dark-mode .update-false {
+    background-color: #1e402e;
+    color: #ccffcc;
+}
+
+.dark-mode .error {
+    background-color: #5c2b2e;
+    color: #f8d7da;
+    border-color: #721c24;
+}
+
+.dark-mode .navbar {
+    background-color: #333;
+}
+
+.dark-mode .navbar .nav-link {
+    color: #eee;
+}
+
+.dark-mode .navbar .nav-link:hover {
+    color: #fff;
+}
+
+.dark-mode .navbar .logout-btn,
+.dark-mode .navbar button {
+    background: #eee;
+    color: #333;
+}
+
+.dark-mode .stats-container {
+    background: #1e1e1e;
+    color: #ddd;
+}
+
+.dark-mode .stats-container li {
+    background: #2c2c2c;
+}
+
+.dark-mode .styled-table thead tr {
+    background-color: #336b63;
+}
+
+.dark-mode .styled-table tbody tr:nth-child(even) {
+    background-color: #2a2a2a;
+}
+
+
+/* === Responsive === */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-left,
+    .nav-right {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .nav-link,
+    .logout-btn,
+    .navbar button {
+        width: 100%;
+        text-align: left;
+    }
+}
+
+
