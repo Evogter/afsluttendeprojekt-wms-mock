@@ -1,0 +1,20 @@
+# Ignorer det virtuelle miljø
+venv/
+
+# Ignorer midlertidige filer fra Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Ignorer VS Code-indstillinger
+.vscode/
+
+# Ignorer databasefiler
+*.sqlite3
+*.db
+
+# Ignorer ZIP-filer og diverse build/output
+*.zip
+*.log
+*.env
